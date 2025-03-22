@@ -1,0 +1,168 @@
+﻿@page
+@model EcoEnergyRazorPages.Pages.WaterConsumptionModel
+@{
+	ViewData["Title"] = "Consum d'aigua";
+	List<string> header = ["Any", "Codi Comarca", "Comarca", "Població", "Domèstic xarxa", "Activitats econòmiques i fonts pròpies", "Total", "Consum domèstic per càpita"];
+}
+
+<div>
+	<div class="text-center"><h1 class="display-4">Consum d'aigua</h1></div>
+	<p>@Model.MsgFileError</p>
+	<a class="btn btn-primary" asp-page="/AddWaterConsumption">Afegir Consum d'Aigua</a>
+	@if (Model.WaterConsumptions.Any())
+	{
+		<table class="table">
+			<thead>
+				<tr>
+					@foreach (string title in header)
+					{
+						<td>@title</td>
+					}
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var water in Model.WaterConsumptions)
+				{
+					<tr>
+						<td>@water.Year</td>
+						<td>@water.RegionCode</td>
+						<td>@water.RegionName</td>
+						<td>@water.Population</td>
+						<td>@water.DomesticNetwork</td>
+						<td>@water.EconomicActivitiesOwnSources</td>
+						<td>@water.Total</td>
+						<td>@water.HouseholdConsumptionPerCapita</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<p>Quantitat de registres: @Model.WaterConsumptions.Count()</p>
+		<h3>Estadísitiques</h3>
+		<h4>Municipis amb més consum d'aigua en l'any més recent</h4>
+		@if (Model.RegionsWithMoreWaterInLastYear.Any())
+		{
+			<table class="table">
+				<thead>
+					<tr>
+						@foreach (string title in header)
+						{
+							<td>@title</td>
+						}
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var water in Model.RegionsWithMoreWaterInLastYear)
+					{
+						<tr>
+							<td>@water.Year</td>
+							<td>@water.RegionCode</td>
+							<td>@water.RegionName</td>
+							<td>@water.Population</td>
+							<td>@water.DomesticNetwork</td>
+							<td>@water.EconomicActivitiesOwnSources</td>
+							<td>@water.Total</td>
+							<td>@water.HouseholdConsumptionPerCapita</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		}
+		else
+		{
+			<p>No hi ha registres</p>
+		}
+		<p>Quantitat de registres: @Model.RegionsWithMoreWaterInLastYear.Count()</p>
+		<h4>Consum mitja d'aigua per comarca</h4>
+		@if (Model.AverageWaterConsumptionByRegion.Any())
+		{
+			<table class="table">
+				<thead>
+					<tr>
+						<td>Codi Comarca</td>
+						<td>Comarca</td>
+						<td>Consum domèstic per càpita</td>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var water in Model.AverageWaterConsumptionByRegion)
+					{
+						<tr>
+							<td>@water.RegionCode</td>
+							<td>@water.RegionName</td>
+							<td>@water.HouseholdConsumptionPerCapita</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+			<p>Quantitat de registres: @Model.AverageWaterConsumptionByRegion.Count()</p>
+		}
+		else
+		{
+			<p>No hi ha registres</p>
+		}
+		<h4>Municipis amb consum d'aigua sospitosos</h4>
+		@if (Model.SusWaterConsumption.Any())
+		{
+			<table class="table">
+				<thead>
+					<tr>
+						@foreach (string title in header)
+						{
+							<td>@title</td>
+						}
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var water in Model.SusWaterConsumption)
+					{
+						<tr>
+							<td>@water.Year</td>
+							<td>@water.Year</td>
+							<td>@water.Year</td>
+							<td>@water.RegionCode</td>
+							<td>@water.RegionName</td>
+							<td>@water.Population</td>
+							<td>@water.DomesticNetwork</td>
+							<td>@water.EconomicActivitiesOwnSources</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+			<p>Quantitat de registres: @Model.SusWaterConsumption.Count()</p>
+		}
+		else
+		{
+			<p>No hi ha registres</p>
+		}
+		<h4>Municipis amb un augment del consum d'aigua en els últims 5 anys</h4>
+		@if (Model.RegionsWithWaterConsumptionIncreasingTrendInLast5Years.Any())
+		{
+			<table class="table">
+				<thead>
+					<tr>
+						<td>Codi Comarca</td>
+						<td>Comarca</td>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var water in Model.RegionsWithWaterConsumptionIncreasingTrendInLast5Years)
+					{
+						<tr>
+							<td>@water.RegionCode</td>
+							<td>@water.RegionName</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+			<p>Quantitat de registres: @Model.RegionsWithWaterConsumptionIncreasingTrendInLast5Years.Count()</p>
+		}
+		else
+		{
+			<p>No hi ha registres</p>
+		}
+	}
+	else
+	{
+		<h3>No hi ha registres</h3>
+	}
+</div>
