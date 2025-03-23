@@ -2,6 +2,7 @@
 @model EcoEnergyRazorPages.Pages.SimulationsModel
 @{
 	ViewData["Title"] = "Simulacions";
+	List<string> header = ["Tipus", "Hores de Sol", "Velocitat del Vent", "Cabal d'Aigua", "Rati", "Energia Generada", "Cost kWh", "Preu kWh", "Data i Hora"];
 }
 
 <div>
@@ -12,22 +13,16 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<td>Data/Hora</td>
-					<td>Tipus de Simulació</td>
-					<td>Paràmetre Configurat</td>
-					<td>Rati</td>
-					<td>Energia Generada</td>
-					<td>Cost kWh</td>
-					<td>Preu kWh</td>
-					<td>Cost Total</td>
-					<td>Preu Total</td>
+					@foreach (string title in header)
+					{
+						<td>title</td>
+					}
 				</tr>
 			</thead>
 			<tbody>
 				@foreach (var sim in Model.Simulations)
 				{
 					<tr>
-						<td>@sim.Date</td>
 						@if ((int)sim.SysType == 1)
 						{
 							<td>Sistema Solar</td>
@@ -44,18 +39,19 @@
 						{
 							<td>Sistema desconegut</td>
 						}
-						<td>@sim.ConfigPar</td>
+						<td>@sim.SunHours</td>
+						<td>@sim.WindVelocity</td>
+						<td>@sim.WaterFlow</td>
 						<td>@sim.Ratio</td>
 						<td>@sim.EnergyGen</td>
 						<td>@sim.KWHCost</td>
 						<td>@sim.KWHPrice</td>
-						<td>@sim.TotalCost</td>
-						<td>@sim.TotalPrice</td>
+						<td>@sim.Date</td>
 					</tr>
 				}
 			</tbody>
 		</table>
-		<p>Quantitat de registres: @Model.Simulations.Count()</p>
+		<p>Quantitat de registres: @Model.Simulations.Count</p>
 	} else
 	{
 		<h3>No hi ha simulacions</h3>
