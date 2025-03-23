@@ -29,7 +29,7 @@ namespace EcoEnergyRazorPages.Pages
             {
                 return Page();
             }
-            switch (systemtype)
+            /*switch (systemtype)
             {
                 case "1":
                     NewSystem = new SolarSystem();
@@ -107,7 +107,7 @@ namespace EcoEnergyRazorPages.Pages
                 MsgFileError = MsgDataError;
                 return Page();
             }
-            SysIO.File.AppendAllText(FilePath, Environment.NewLine);
+            SysIO.File.AppendAllText(FilePath, Environment.NewLine);*/
             return RedirectToPage("Simulations");
         }
     }

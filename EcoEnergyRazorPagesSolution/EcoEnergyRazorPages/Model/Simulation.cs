@@ -48,8 +48,8 @@ namespace EcoEnergyRazorPages.Model
 
 
         // Unused Properties
-        public double ConfigPar { get; set; }
+        /*public double ConfigPar { get; set; }
         public decimal TotalCost { get; set; }
-        public decimal TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }*/
     }
 }

@@ -29,7 +29,7 @@ namespace EcoEnergyRazorPages.Model
         // Unused Properties
         [Required(ErrorMessage = MsgRequiredError)]
         public DateOnly Data { get; set; } = DateOnly.FromDateTime(DateTime.Now);
-        public float PBEE_Hidroelectr { get; set; }
+        /*public float PBEE_Hidroelectr { get; set; }
         public float PBEE_Carbo { get; set; }
         public float PBEE_GasNat { get; set; }
         public float PBEE_FuelOil { get; set; }
@@ -63,7 +63,7 @@ namespace EcoEnergyRazorPages.Model
         public float DGGN_PuntFrontEnagas { get; set; }
         public float DGGN_DistrAlimGNL { get; set; }
         public float DGGN_ConsumGNCentrTerm { get; set; }
-        public float CCAC_GasoilA { get; set; }
+        public float CCAC_GasoilA { get; set; }*/
 
 
         public string GetDateMonthYearOnly()
