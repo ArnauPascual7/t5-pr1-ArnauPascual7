@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcoEnergyRazorPages.Model
 {
@@ -7,12 +8,19 @@ namespace EcoEnergyRazorPages.Model
         const string MsgRequiredError = "El valor ha de ser major a 0";
         const string MsgMinValue0Error = "Aquest camp és obligatori";
 
-        public int Year { get; set; } = 2024; //DateTime.Now.Year
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public int RegionCode { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         public string? RegionName { get; set; }
+        public int Year { get; set; } = 2024; //DateTime.Now.Year
+        public float HouseholdConsumptionPerCapita { get; set; }
+
+
+        // Unused Properties
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public int Population { get; set; }
@@ -23,7 +31,7 @@ namespace EcoEnergyRazorPages.Model
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public int EconomicActivitiesOwnSources { get; set; }
         public int Total { get; set; }
-        public float HouseholdConsumptionPerCapita { get; set; }
+
 
         public void SetWaterConsumptionCalculation()
         {
