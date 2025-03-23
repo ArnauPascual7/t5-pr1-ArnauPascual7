@@ -6,8 +6,8 @@ namespace EcoEnergyRazorPages.Data
     public class AppDbContext : DbContext
     {
         public DbSet<Simulation> Simulations { get; set; }
-        public DbSet<WaterConsumption> WaterConsumptions { get; set; }
-        public DbSet<EnergyIndicator> EnergyIndicators { get; set; }
+        /*public DbSet<WaterConsumption> WaterConsumptions { get; set; }
+        public DbSet<EnergyIndicator> EnergyIndicators { get; set; }*/
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
