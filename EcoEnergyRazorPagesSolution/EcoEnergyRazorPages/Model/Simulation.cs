@@ -7,6 +7,7 @@ namespace EcoEnergyRazorPages.Model
     {
         SolarSystem = 1, WindSystem = 2, HydroelectricSystem = 3
     }
+    [Table("Simulations")]
     public class Simulation
     {
         const string MsgRequiredError = "El valor ha de ser major a 0";

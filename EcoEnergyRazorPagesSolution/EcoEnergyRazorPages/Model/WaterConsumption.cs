@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcoEnergyRazorPages.Model
 {
+    [Table("WaterConsumptions")]
     public class WaterConsumption : IComparable<WaterConsumption>
     {
         const string MsgRequiredError = "El valor ha de ser major a 0";
