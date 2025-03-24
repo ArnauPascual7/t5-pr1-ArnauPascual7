@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoEnergyRazorPages.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250323211238_Initial")]
+    [Migration("20250324163809_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,7 +25,35 @@ namespace EcoEnergyRazorPages.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EcoEnergyRazorPages.Model.Simulation", b =>
+            modelBuilder.Entity("EcoEnergyRazorPages.Model.DbEnergyIndicator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("CCAC_GasolinaAuto")
+                        .HasColumnType("real");
+
+                    b.Property<float>("CDEEBC_DemandaElectr")
+                        .HasColumnType("real");
+
+                    b.Property<float>("CDEEBC_ProdDisp")
+                        .HasColumnType("real");
+
+                    b.Property<float>("CDEEBC_ProdNeta")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EnergyIndicators");
+                });
+
+            modelBuilder.Entity("EcoEnergyRazorPages.Model.DbSimulation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,6 +94,32 @@ namespace EcoEnergyRazorPages.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Simulations");
+                });
+
+            modelBuilder.Entity("EcoEnergyRazorPages.Model.DbWaterConsumption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("HouseholdConsumptionPerCapita")
+                        .HasColumnType("real");
+
+                    b.Property<int>("RegionCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RegionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WaterConsumptions");
                 });
 #pragma warning restore 612, 618
         }
