@@ -30,14 +30,22 @@ namespace EcoEnergyRazorPages
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
+            });
+
+            //app.UseAuthorization();
 
             app.MapStaticAssets();
             app.MapRazorPages()
                .WithStaticAssets();
 
             app.Run();
-
         }
     }
 }

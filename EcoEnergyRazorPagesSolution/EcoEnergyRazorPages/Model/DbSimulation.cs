@@ -13,19 +13,7 @@ namespace EcoEnergyRazorPages.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
-        [Range(0, 3, ErrorMessage = MsgMinValue0Error)]
-        public int SysTypeId
-        {
-            get
-            {
-                return (int)this.SysType;
-            }
-            set
-            {
-                this.SysType = (SystemType)value;
-            }
-        }
-        public SystemType SysType { get; set; }
+        public string? SystemType { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public double? SunHours { get; set; }

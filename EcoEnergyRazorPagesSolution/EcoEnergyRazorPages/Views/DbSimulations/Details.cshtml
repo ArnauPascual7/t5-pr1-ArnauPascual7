@@ -1,0 +1,73 @@
+﻿@model EcoEnergyRazorPages.Model.DbSimulation
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout";
+}
+
+<h1>Detalls</h1>
+
+<div>
+    <h4>Simulació</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SystemType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SystemType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SunHours)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SunHours)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WindVelocity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WindVelocity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WaterFlow)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WaterFlow)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ratio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ratio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnergyGen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnergyGen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KWHCost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KWHCost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KWHPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KWHPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" href="../../DbSimulations/Edit/@Model?.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" href="../../DbSimulations" class="btn btn-primary">Tornar</a>
+</div>
