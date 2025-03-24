@@ -76,11 +76,11 @@ namespace EcoEnergyRazorPages.Tools
 
             Debug.WriteLine("?: Registers added to " + filePath);
         }
-        public static List<WaterConsumption> ReadXMLWaterConsumption(string filePath)
+        public static List<FileWaterConsumption> ReadXMLWaterConsumption(string filePath)
         {
             Debug.WriteLine("?: XML File Path --> " + Path.GetFullPath(filePath));
 
-            List<WaterConsumption> waterConsumptions = new List<WaterConsumption>();
+            List<FileWaterConsumption> waterConsumptions = new List<FileWaterConsumption>();
             try
             {
                 XDocument xmlDoc = XDocument.Load(filePath);
@@ -88,7 +88,7 @@ namespace EcoEnergyRazorPages.Tools
                 {
                     foreach (XElement element in xmlDoc.Root.Elements())
                     {
-                        WaterConsumption waterConsumption = new WaterConsumption
+                        FileWaterConsumption waterConsumption = new FileWaterConsumption
                         {
                             Year = int.Parse(element.Element("Year")?.Value ?? "0"),
                             RegionCode = int.Parse(element.Element("RegionCode")?.Value ?? "0"),
@@ -106,11 +106,11 @@ namespace EcoEnergyRazorPages.Tools
             catch (XmlException ex)
             {
                 Debug.WriteLine($"?: Error en la lectura del fitxer XML: {ex}");
-                return new List<WaterConsumption>();
+                return new List<FileWaterConsumption>();
             }
             return waterConsumptions;
         }
-        public static void WriteXMLWaterConsumption(string filePath, WaterConsumption waterConsumption)
+        public static void WriteXMLWaterConsumption(string filePath, FileWaterConsumption waterConsumption)
         {
             Debug.WriteLine("?: XML File Path --> " + Path.GetFullPath(filePath));
 

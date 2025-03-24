@@ -4,11 +4,11 @@ namespace EcoEnergyRazorPages.Tools
 {
     public static class WaterConsumptionStatsHelper
     {
-        public static List<WaterConsumption> CheckWaterConsumptionMostRecentYearList(List<WaterConsumption> waterConsumptions)
+        public static List<FileWaterConsumption> CheckWaterConsumptionMostRecentYearList(List<FileWaterConsumption> waterConsumptions)
         {
-            List<WaterConsumption> mostRecentYearWaterConsumptions = new List<WaterConsumption>();
+            List<FileWaterConsumption> mostRecentYearWaterConsumptions = new List<FileWaterConsumption>();
             int year = CheckWaterConsumptionMostRecentYear(waterConsumptions);
-            foreach (WaterConsumption waterCons in waterConsumptions)
+            foreach (FileWaterConsumption waterCons in waterConsumptions)
             {
                 if (waterCons.Year == year)
                 {
@@ -17,14 +17,14 @@ namespace EcoEnergyRazorPages.Tools
             }
             return mostRecentYearWaterConsumptions;
         }
-        public static int CheckWaterConsumptionMostRecentYear(List<WaterConsumption> waterConsumptions)
+        public static int CheckWaterConsumptionMostRecentYear(List<FileWaterConsumption> waterConsumptions)
         {
             return waterConsumptions.Select(waterCons => waterCons.Year).Max();
         }
-        public static List<WaterConsumption> CheckSusWaterConsumptionList(List<WaterConsumption> waterConsumptions, int digits)
+        public static List<FileWaterConsumption> CheckSusWaterConsumptionList(List<FileWaterConsumption> waterConsumptions, int digits)
         {
-            List<WaterConsumption> susWaterConsumption = new List<WaterConsumption>();
-            foreach (WaterConsumption waterCons in waterConsumptions)
+            List<FileWaterConsumption> susWaterConsumption = new List<FileWaterConsumption>();
+            foreach (FileWaterConsumption waterCons in waterConsumptions)
             {
                 if (waterCons.Total.ToString().Length > digits)
                 {
@@ -33,11 +33,11 @@ namespace EcoEnergyRazorPages.Tools
             }
             return susWaterConsumption;
         }
-        public static List<WaterConsumption> CheckWaterConsumptionLast5YearsList(List<WaterConsumption> waterConsumptions)
+        public static List<FileWaterConsumption> CheckWaterConsumptionLast5YearsList(List<FileWaterConsumption> waterConsumptions)
         {
-            List<WaterConsumption> waterConsumptionLast5Years = new List<WaterConsumption>();
+            List<FileWaterConsumption> waterConsumptionLast5Years = new List<FileWaterConsumption>();
             int lastYear = CheckWaterConsumptionMostRecentYear(waterConsumptions);
-            foreach (WaterConsumption waterCons in waterConsumptions)
+            foreach (FileWaterConsumption waterCons in waterConsumptions)
             {
                 if (waterCons.Year > lastYear - 5)
                 {
@@ -46,13 +46,13 @@ namespace EcoEnergyRazorPages.Tools
             }
             return waterConsumptionLast5Years;
         }
-        public static List<WaterConsumption> CheckWaterConsumptionIncreasingTrendList(List<WaterConsumption> waterConsumptionsLast5Years)
+        public static List<FileWaterConsumption> CheckWaterConsumptionIncreasingTrendList(List<FileWaterConsumption> waterConsumptionsLast5Years)
         {
-            List<WaterConsumption> waterConsumptions = new List<WaterConsumption>();
+            List<FileWaterConsumption> waterConsumptions = new List<FileWaterConsumption>();
             for (int i = 1; i <= CheckHigherRegionCode(waterConsumptionsLast5Years); i++)
             {
                 int count = 0;
-                List<WaterConsumption> regionWaterConsumptions = waterConsumptionsLast5Years
+                List<FileWaterConsumption> regionWaterConsumptions = waterConsumptionsLast5Years
                     .FindAll(waterCons => waterCons.RegionCode == i);
                 regionWaterConsumptions.Sort();
                 for (int j = 0; j < regionWaterConsumptions.Count - 1; j++)
@@ -64,7 +64,7 @@ namespace EcoEnergyRazorPages.Tools
                 }
                 if (count >= 4)
                 {
-                    waterConsumptions.Add(new WaterConsumption
+                    waterConsumptions.Add(new FileWaterConsumption
                     {
                         RegionCode = regionWaterConsumptions[0].RegionCode,
                         RegionName = regionWaterConsumptions[0].RegionName
@@ -73,12 +73,12 @@ namespace EcoEnergyRazorPages.Tools
             }
             return waterConsumptions;
         }
-        public static int CheckHigherRegionCode(List<WaterConsumption> waterConsumptions)
+        public static int CheckHigherRegionCode(List<FileWaterConsumption> waterConsumptions)
         {
             int regionCode = 0;
             for (int i = 0; i < waterConsumptions.Count; i++)
             {
-                WaterConsumption waterCons = waterConsumptions[i];
+                FileWaterConsumption waterCons = waterConsumptions[i];
                 regionCode = waterCons.RegionCode > regionCode ? waterCons.RegionCode : regionCode;
             }
             return regionCode;

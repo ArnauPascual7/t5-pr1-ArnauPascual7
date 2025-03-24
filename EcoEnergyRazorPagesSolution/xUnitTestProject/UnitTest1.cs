@@ -9,7 +9,7 @@ namespace xUnitTestProject
         public void EnergyIndicatorGetDateMonthYearOnlyTrue()
         {
             // Arrange & Act
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
@@ -23,7 +23,7 @@ namespace xUnitTestProject
         public void EnergyIndicatorGetDateMonthYearOnlyFalse()
         {
             // Arrange & Act
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 1, 1)
             };
@@ -37,11 +37,11 @@ namespace xUnitTestProject
         public void EnergyIndicatorCompareToTrue()
         {
             // Arrange & Act
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
-            EnergyIndicator indicator2 = new EnergyIndicator
+            FileEnergyIndicator indicator2 = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
@@ -54,11 +54,11 @@ namespace xUnitTestProject
         public void EnergyIndicatorCompareToFalse()
         {
             // Arrange & Act
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
-            EnergyIndicator indicator2 = new EnergyIndicator
+            FileEnergyIndicator indicator2 = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 1, 1)
             };
@@ -71,11 +71,11 @@ namespace xUnitTestProject
         public void EnergyIndicatorCompareToNull()
         {
             // Arrange & Act
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
-            EnergyIndicator indicator2 = null;
+            FileEnergyIndicator indicator2 = null;
             int result = indicator.CompareTo(indicator2);
             int exp = 1;
             //Assert
@@ -85,11 +85,11 @@ namespace xUnitTestProject
         public void EnergyIndicatorEqualsTrue()
         {
             // Arrange & Act
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
-            EnergyIndicator indicator2 = new EnergyIndicator
+            FileEnergyIndicator indicator2 = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
@@ -101,11 +101,11 @@ namespace xUnitTestProject
         [Fact]
         public void EnergyIndicatorEqualsFalse()
         {
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
-            EnergyIndicator indicator2 = new EnergyIndicator
+            FileEnergyIndicator indicator2 = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 1, 1)
             };
@@ -117,11 +117,11 @@ namespace xUnitTestProject
         [Fact]
         public void EnergyIndicatorEqualsNull()
         {
-            EnergyIndicator indicator = new EnergyIndicator
+            FileEnergyIndicator indicator = new FileEnergyIndicator
             {
                 Data = new DateOnly(2021, 2, 1)
             };
-            EnergyIndicator indicator2 = null;
+            FileEnergyIndicator indicator2 = null;
             bool result = indicator.Equals(indicator2);
             bool exp = false;
             //Assert
@@ -231,11 +231,11 @@ namespace xUnitTestProject
         public void WaterConsumptionCompareToTrue()
         {
             // Arrange & Act
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2021
             };
@@ -248,11 +248,11 @@ namespace xUnitTestProject
         public void WaterConsumptionCompareToFalse()
         {
             // Arrange & Act
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2020
             };
@@ -265,12 +265,12 @@ namespace xUnitTestProject
         public void WaterConsumptionEqualsTrue()
         {
             // Arrange & Act
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
@@ -284,12 +284,12 @@ namespace xUnitTestProject
         public void WaterConsumptionEqualsFalse()
         {
             // Arrange & Act
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 2
@@ -303,12 +303,12 @@ namespace xUnitTestProject
         public void WaterConsumptionEqualsNull()
         {
             // Arrange & Act
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
             };
-            WaterConsumption water2 = null;
+            FileWaterConsumption water2 = null;
             bool result = water.Equals(water2);
             bool exp = false;
             //Assert
@@ -319,11 +319,11 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2021
             };
@@ -337,11 +337,11 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2020
             };
@@ -355,11 +355,11 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021
             };
-            WaterConsumption water2 = null;
+            FileWaterConsumption water2 = null;
             int result = comparer.Compare(water, water2);
             int exp = 1;
             //Assert
@@ -370,12 +370,12 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
@@ -390,12 +390,12 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 2
@@ -410,12 +410,12 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 Year = 2021,
                 RegionCode = 1
             };
-            WaterConsumption water2 = null;
+            FileWaterConsumption water2 = null;
             int result = comparer.YearRegionCompare(water, water2);
             int exp = 1;
             //Assert
@@ -426,11 +426,11 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 HouseholdConsumptionPerCapita = 1
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 HouseholdConsumptionPerCapita = 1
             };
@@ -444,11 +444,11 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 HouseholdConsumptionPerCapita = 1
             };
-            WaterConsumption water2 = new WaterConsumption
+            FileWaterConsumption water2 = new FileWaterConsumption
             {
                 HouseholdConsumptionPerCapita = 2
             };
@@ -462,11 +462,11 @@ namespace xUnitTestProject
         {
             // Arrange & Act
             WaterConsumptionComparer comparer = new WaterConsumptionComparer();
-            WaterConsumption water = new WaterConsumption
+            FileWaterConsumption water = new FileWaterConsumption
             {
                 HouseholdConsumptionPerCapita = 1
             };
-            WaterConsumption water2 = null;
+            FileWaterConsumption water2 = null;
             int result = comparer.HouseholdConsumptionPerCapitaCompare(water, water2);
             int exp = 1;
             //Assert

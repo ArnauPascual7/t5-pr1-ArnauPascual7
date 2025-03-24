@@ -11,7 +11,7 @@ namespace EcoEnergyRazorPages.Pages
     public class EnergyIndicatorsModel : PageModel
     {
         public string? MsgFileError { get; set; }
-        public List<EnergyIndicator> EnergyIndicators { get; set; } = new List<EnergyIndicator>();
+        public List<FileEnergyIndicator> EnergyIndicators { get; set; } = new List<FileEnergyIndicator>();
         public void OnGet()
         {
             const string MsgDataError = "Error de càrrega de dades";
@@ -22,8 +22,8 @@ namespace EcoEnergyRazorPages.Pages
 
             if (SysIO.File.Exists(CsvFilePath) && SysIO.File.Exists(JsonFilePath))
             {
-                EnergyIndicators = FilesHelper.ReadCsv<EnergyIndicator>(CsvFilePath);
-                List<EnergyIndicator> jsonEnergyIndicators = FilesHelper.ReadJsonList<EnergyIndicator>(JsonFilePath);
+                EnergyIndicators = FilesHelper.ReadCsv<FileEnergyIndicator>(CsvFilePath);
+                List<FileEnergyIndicator> jsonEnergyIndicators = FilesHelper.ReadJsonList<FileEnergyIndicator>(JsonFilePath);
 
                 if (jsonEnergyIndicators.Any())
                 {

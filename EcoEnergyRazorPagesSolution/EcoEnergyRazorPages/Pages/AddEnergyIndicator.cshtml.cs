@@ -16,7 +16,7 @@ namespace EcoEnergyRazorPages.Pages
 
         public string? MsgFileError { get; set; }
         [BindProperty]
-        public EnergyIndicator? NewEnergyIndicator { get; set; }
+        public FileEnergyIndicator? NewEnergyIndicator { get; set; }
         public void OnGet()
         {
             const string ReadFileName = "indicadors_energetics_defaultvalues.json";
@@ -25,7 +25,7 @@ namespace EcoEnergyRazorPages.Pages
             if (SysIO.File.Exists(ReadFilePath))
             {
                 string defaultJson = SysIO.File.ReadAllText(ReadFilePath);
-                EnergyIndicator? deserializedJson = JsonSerializer.Deserialize<EnergyIndicator>(defaultJson);
+                FileEnergyIndicator? deserializedJson = JsonSerializer.Deserialize<FileEnergyIndicator>(defaultJson);
 
                 if (deserializedJson != null)
                 {

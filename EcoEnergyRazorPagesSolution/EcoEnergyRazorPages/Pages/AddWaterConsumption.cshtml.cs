@@ -12,7 +12,7 @@ namespace EcoEnergyRazorPages.Pages
     {
         public string? MsgFileError { get; set; }
         [BindProperty]
-        public WaterConsumption? NewWaterConsumption { get; set; }
+        public FileWaterConsumption? NewWaterConsumption { get; set; }
         public IActionResult OnPost()
         {
             const string MsgDataError = "Error de càrrega de dades";
