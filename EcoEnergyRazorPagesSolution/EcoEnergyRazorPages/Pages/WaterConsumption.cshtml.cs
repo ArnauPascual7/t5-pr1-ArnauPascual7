@@ -15,7 +15,7 @@ namespace EcoEnergyRazorPages.Pages
     public class WaterConsumptionModel : PageModel
     {
         public string? MsgFileError { get; set; }
-        public List<WaterConsumption> WaterConsumptions { get; set; } = new List<WaterConsumption>();
+        public List<FileWaterConsumption> WaterConsumptions { get; set; } = new List<FileWaterConsumption>();
         public void OnGet()
         {
             const string MsgDataError = "Error de càrrega de dades";
@@ -26,8 +26,8 @@ namespace EcoEnergyRazorPages.Pages
 
             if (SysIO.File.Exists(CsvFilePath) && SysIO.File.Exists(XmlFilePath))
             {
-                WaterConsumptions = FilesHelper.ReadCsv<WaterConsumption>(CsvFilePath);
-                List<WaterConsumption> xmlWaterConsumptions = FilesHelper.ReadXMLWaterConsumption(XmlFilePath);
+                WaterConsumptions = FilesHelper.ReadCsv<FileWaterConsumption>(CsvFilePath);
+                List<FileWaterConsumption> xmlWaterConsumptions = FilesHelper.ReadXMLWaterConsumption(XmlFilePath);
 
                 if (xmlWaterConsumptions.Any())
                 {
