@@ -4,6 +4,7 @@ using EcoEnergyRazorPages.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoEnergyRazorPages.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250324170154_UpgradedSimulationsSystemType")]
+    partial class UpgradedSimulationsSystemType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,26 +67,26 @@ namespace EcoEnergyRazorPages.Migrations
                     b.Property<double>("EnergyGen")
                         .HasColumnType("float");
 
-                    b.Property<double>("KWHCost")
-                        .HasColumnType("float");
+                    b.Property<decimal>("KWHCost")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("KWHPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("KWHPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Ratio")
                         .HasColumnType("float");
 
-                    b.Property<double?>("SunHours")
+                    b.Property<double>("SunHours")
                         .HasColumnType("float");
 
                     b.Property<string>("SystemType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("WaterFlow")
+                    b.Property<double>("WaterFlow")
                         .HasColumnType("float");
 
-                    b.Property<double?>("WindVelocity")
+                    b.Property<double>("WindVelocity")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

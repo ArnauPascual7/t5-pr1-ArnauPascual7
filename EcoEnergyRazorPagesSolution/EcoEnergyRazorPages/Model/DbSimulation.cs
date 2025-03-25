@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EcoEnergyRazorPages.Model
 {
@@ -13,40 +14,28 @@ namespace EcoEnergyRazorPages.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
-        [Range(0, 3, ErrorMessage = MsgMinValue0Error)]
-        public int SysTypeId
-        {
-            get
-            {
-                return (int)this.SysType;
-            }
-            set
-            {
-                this.SysType = (SystemType)value;
-            }
-        }
-        public SystemType SysType { get; set; }
-        [Required(ErrorMessage = MsgRequiredError)]
+        public string? SystemType { get; set; }
+        [MaybeNull]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public double? SunHours { get; set; }
-        [Required(ErrorMessage = MsgRequiredError)]
+        [MaybeNull]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public double? WindVelocity { get; set; }
-        [Required(ErrorMessage = MsgRequiredError)]
+        [MaybeNull]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public double? WaterFlow { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
-        [Range(0d, 3d, ErrorMessage = MsgValue03IntervalError)]
+        [Range(0, 3, ErrorMessage = MsgValue03IntervalError)]
         public double Ratio { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public double EnergyGen { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
-        public decimal KWHCost { get; set; }
+        public double KWHCost { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
-        public decimal KWHPrice { get; set; }
+        public double KWHPrice { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
     }
 }

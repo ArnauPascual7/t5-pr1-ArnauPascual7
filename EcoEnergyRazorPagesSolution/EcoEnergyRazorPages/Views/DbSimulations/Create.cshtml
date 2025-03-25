@@ -1,0 +1,76 @@
+﻿@model EcoEnergyRazorPages.Model.DbSimulation
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+}
+
+<h1>Crear</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SystemType" class="control-label">Tipus de Sistema</label>
+                <input asp-for="SystemType" class="form-control" />
+                <span asp-validation-for="SystemType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SunHours" class="control-label">Hores de Sol</label>
+                <input asp-for="SunHours" class="form-control" />
+                <span asp-validation-for="SunHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WindVelocity" class="control-label">Velocitat del Vent</label>
+                <input asp-for="WindVelocity" class="form-control" />
+                <span asp-validation-for="WindVelocity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterFlow" class="control-label">Cabal d'aigua</label>
+                <input asp-for="WaterFlow" class="form-control" />
+                <span asp-validation-for="WaterFlow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ratio" class="control-label">Rati</label>
+                <input asp-for="Ratio" class="form-control" />
+                <span asp-validation-for="Ratio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnergyGen" class="control-label">Energia Generada</label>
+                <input asp-for="EnergyGen" class="form-control" />
+                <span asp-validation-for="EnergyGen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KWHCost" class="control-label">Cost kWh</label>
+                <input asp-for="KWHCost" class="form-control" />
+                <span asp-validation-for="KWHCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KWHPrice" class="control-label">Preu kWh</label>
+                <input asp-for="KWHPrice" class="form-control" />
+                <span asp-validation-for="KWHPrice" class="text-danger"></span>
+            </div>
+            @*
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            *@
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+                @*<button type="submit" class="btn btn-primary">Save</button>*@
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class=" btn btn-primary">Tornar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -11,9 +11,7 @@ namespace EcoEnergyRazorPages.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required(ErrorMessage = MsgRequiredError)]
-        [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
-        public int Year { get; set; }
+        public int Year { get; set; } = DateTime.Now.Year;
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public float CDEEBC_ProdNeta { get; set; }

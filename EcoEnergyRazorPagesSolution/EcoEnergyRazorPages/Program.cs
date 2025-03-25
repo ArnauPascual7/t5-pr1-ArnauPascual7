@@ -1,5 +1,6 @@
 using EcoEnergyRazorPages.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace EcoEnergyRazorPages
 {
@@ -16,6 +17,12 @@ namespace EcoEnergyRazorPages
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            var cultInfo = new CultureInfo("es-ES");
+            cultInfo.NumberFormat.CurrencyDecimalSeparator =",";
+
+            CultureInfo.CurrentCulture = cultInfo;
+            CultureInfo.CurrentUICulture = cultInfo;
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -30,14 +37,22 @@ namespace EcoEnergyRazorPages
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
+            });
+
+            //app.UseAuthorization();
 
             app.MapStaticAssets();
             app.MapRazorPages()
                .WithStaticAssets();
 
             app.Run();
-
         }
     }
 }

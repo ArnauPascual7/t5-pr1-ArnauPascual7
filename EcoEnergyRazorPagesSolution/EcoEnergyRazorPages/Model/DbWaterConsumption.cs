@@ -16,9 +16,7 @@ namespace EcoEnergyRazorPages.Model
         public int RegionCode { get; set; }
         [Required(ErrorMessage = MsgRequiredError)]
         public string? RegionName { get; set; }
-        [Required(ErrorMessage = MsgRequiredError)]
-        [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
-        public int Year { get; set; }
+        public int Year { get; set; } = DateTime.Now.Year;
         [Required(ErrorMessage = MsgRequiredError)]
         [Range(0, 9999999999, ErrorMessage = MsgMinValue0Error)]
         public float HouseholdConsumptionPerCapita { get; set; }
