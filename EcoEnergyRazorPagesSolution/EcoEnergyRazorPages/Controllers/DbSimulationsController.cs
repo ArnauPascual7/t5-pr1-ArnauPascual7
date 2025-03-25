@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EcoEnergyRazorPages.Data;
 using EcoEnergyRazorPages.Model;
 using System.Diagnostics;
+using System.Data;
 
 namespace EcoEnergyRazorPages.Controllers
 {
@@ -61,16 +62,25 @@ namespace EcoEnergyRazorPages.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SystemType,SunHours,WindVelocity,WaterFlow,Ratio,EnergyGen,KWHCost,KWHPrice,Date")] DbSimulation dbSimulation)
+        [Route("Create")]
+        public async Task<IActionResult> Create([Bind("SystemType,SunHours,WindVelocity,WaterFlow,Ratio,EnergyGen,KWHCost,KWHPrice,Date")] DbSimulation dbSimulation)
         {
-            if (ModelState.IsValid)
+            Debug.WriteLine("?:           ------------------------- Start Create Task");
+            try
             {
-                _context.Add(dbSimulation);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(dbSimulation);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
-                return View(dbSimulation);
+            catch (DataException ex)
+            {
+                Debug.WriteLine("?: Data Exception: " + ex);
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+            return View(dbSimulation);
         }
 
         // GET: DbSimulations/Edit/5
@@ -95,7 +105,7 @@ namespace EcoEnergyRazorPages.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,SystemType,SunHours,WindVelocity,WaterFlow,Ratio,EnergyGen,KWHCost,KWHPrice,Date")] DbSimulation dbSimulation)
         {
             if (id != dbSimulation.Id)
@@ -148,7 +158,7 @@ namespace EcoEnergyRazorPages.Controllers
 
         // POST: DbSimulations/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var dbSimulation = await _context.Simulations.FindAsync(id);

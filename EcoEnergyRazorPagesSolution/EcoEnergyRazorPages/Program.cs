@@ -1,5 +1,6 @@
 using EcoEnergyRazorPages.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace EcoEnergyRazorPages
 {
@@ -15,6 +16,12 @@ namespace EcoEnergyRazorPages
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            var cultInfo = new CultureInfo("es-ES");
+            cultInfo.NumberFormat.CurrencyDecimalSeparator =",";
+
+            CultureInfo.CurrentCulture = cultInfo;
+            CultureInfo.CurrentUICulture = cultInfo;
 
             var app = builder.Build();
 
