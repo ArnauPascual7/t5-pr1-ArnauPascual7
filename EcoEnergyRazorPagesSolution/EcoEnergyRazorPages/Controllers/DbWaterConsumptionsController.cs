@@ -10,6 +10,7 @@ using EcoEnergyRazorPages.Model;
 
 namespace EcoEnergyRazorPages.Controllers
 {
+    [Route("DbWaterConsumptions")]
     public class DbWaterConsumptionsController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,12 +21,16 @@ namespace EcoEnergyRazorPages.Controllers
         }
 
         // GET: DbWaterConsumptions
+        [HttpGet]
+        [Route("")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.WaterConsumptions.ToListAsync());
         }
 
         // GET: DbWaterConsumptions/Details/5
+        [HttpGet]
+        [Route("Details/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +49,8 @@ namespace EcoEnergyRazorPages.Controllers
         }
 
         // GET: DbWaterConsumptions/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             return View();
@@ -53,7 +60,7 @@ namespace EcoEnergyRazorPages.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("Id,RegionCode,RegionName,Year,HouseholdConsumptionPerCapita")] DbWaterConsumption dbWaterConsumption)
         {
             if (ModelState.IsValid)
@@ -66,6 +73,8 @@ namespace EcoEnergyRazorPages.Controllers
         }
 
         // GET: DbWaterConsumptions/Edit/5
+        [HttpGet]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,7 +94,7 @@ namespace EcoEnergyRazorPages.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,RegionCode,RegionName,Year,HouseholdConsumptionPerCapita")] DbWaterConsumption dbWaterConsumption)
         {
             if (id != dbWaterConsumption.Id)
@@ -117,6 +126,8 @@ namespace EcoEnergyRazorPages.Controllers
         }
 
         // GET: DbWaterConsumptions/Delete/5
+        [HttpGet]
+        [Route("Delete/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +147,7 @@ namespace EcoEnergyRazorPages.Controllers
 
         // POST: DbWaterConsumptions/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var dbWaterConsumption = await _context.WaterConsumptions.FindAsync(id);
