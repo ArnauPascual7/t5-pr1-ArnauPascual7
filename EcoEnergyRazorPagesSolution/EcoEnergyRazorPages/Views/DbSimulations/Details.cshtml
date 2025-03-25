@@ -3,12 +3,12 @@
 @{
     ViewData["Title"] = "Details";
     Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 }
 
 <h1>Detalls</h1>
 
 <div>
-    <h4>Simulació</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -68,6 +68,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" href="../../DbSimulations/Edit/@Model?.Id" class="btn btn-primary">Editar</a>
-    <a asp-action="Index" href="../../DbSimulations" class="btn btn-primary">Tornar</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-primary">Tornar</a>
 </div>

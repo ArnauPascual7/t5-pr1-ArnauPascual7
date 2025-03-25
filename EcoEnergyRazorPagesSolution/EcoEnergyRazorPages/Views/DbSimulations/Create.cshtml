@@ -3,11 +3,10 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 }
 
 <h1>Crear</h1>
-
-<h4>Simulació</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -68,7 +67,7 @@
 </div>
 
 <div>
-    <a asp-action="Index" href="../DbSimulations" class=" btn btn-primary">Tornar</a>
+    <a asp-action="Index" class=" btn btn-primary">Tornar</a>
 </div>
 
 @section Scripts {
