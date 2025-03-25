@@ -1,0 +1,49 @@
+﻿@model EcoEnergyRazorPages.Model.DbWaterConsumption
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+}
+
+<h1>Crear</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RegionCode" class="control-label"></label>
+                <input asp-for="RegionCode" class="form-control" />
+                <span asp-validation-for="RegionCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegionName" class="control-label"></label>
+                <input asp-for="RegionName" class="form-control" />
+                <span asp-validation-for="RegionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdConsumptionPerCapita" class="control-label"></label>
+                <input asp-for="HouseholdConsumptionPerCapita" class="form-control" />
+                <span asp-validation-for="HouseholdConsumptionPerCapita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class=" btn btn-primary">Tornar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
