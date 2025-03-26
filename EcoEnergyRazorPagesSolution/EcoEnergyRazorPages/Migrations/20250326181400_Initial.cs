@@ -34,15 +34,14 @@ namespace EcoEnergyRazorPages.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SysTypeId = table.Column<int>(type: "int", nullable: false),
-                    SysType = table.Column<int>(type: "int", nullable: false),
-                    SunHours = table.Column<double>(type: "float", nullable: false),
-                    WindVelocity = table.Column<double>(type: "float", nullable: false),
-                    WaterFlow = table.Column<double>(type: "float", nullable: false),
+                    SystemType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SunHours = table.Column<double>(type: "float", nullable: true),
+                    WindVelocity = table.Column<double>(type: "float", nullable: true),
+                    WaterFlow = table.Column<double>(type: "float", nullable: true),
                     Ratio = table.Column<double>(type: "float", nullable: false),
                     EnergyGen = table.Column<double>(type: "float", nullable: false),
-                    KWHCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    KWHPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    KWHCost = table.Column<double>(type: "float", nullable: false),
+                    KWHPrice = table.Column<double>(type: "float", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

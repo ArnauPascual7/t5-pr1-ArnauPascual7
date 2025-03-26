@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoEnergyRazorPages.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250324163809_Initial")]
+    [Migration("20250326181400_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -67,28 +67,26 @@ namespace EcoEnergyRazorPages.Migrations
                     b.Property<double>("EnergyGen")
                         .HasColumnType("float");
 
-                    b.Property<decimal>("KWHCost")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("KWHCost")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("KWHPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("KWHPrice")
+                        .HasColumnType("float");
 
                     b.Property<double>("Ratio")
                         .HasColumnType("float");
 
-                    b.Property<double>("SunHours")
+                    b.Property<double?>("SunHours")
                         .HasColumnType("float");
 
-                    b.Property<int>("SysType")
-                        .HasColumnType("int");
+                    b.Property<string>("SystemType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SysTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("WaterFlow")
+                    b.Property<double?>("WaterFlow")
                         .HasColumnType("float");
 
-                    b.Property<double>("WindVelocity")
+                    b.Property<double?>("WindVelocity")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

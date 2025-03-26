@@ -173,7 +173,7 @@ namespace EcoEnergyRazorPages.Controllers
             const string csvFile = "consum_aigua_cat_per_comarques.csv";
             const string csvPath = @"ModelData\" + csvFile;
 
-            Debug.WriteLine("?: Restore");
+            Debug.WriteLine("?: Restore Db");
 
             List<FileWaterConsumption> fileWaterCons = FilesHelper.ReadCsv<FileWaterConsumption>(csvPath);
 
