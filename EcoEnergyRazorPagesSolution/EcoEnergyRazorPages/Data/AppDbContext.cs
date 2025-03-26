@@ -1,5 +1,8 @@
-﻿using EcoEnergyRazorPages.Model;
+﻿using System.Diagnostics;
+using EcoEnergyRazorPages.Model;
+using EcoEnergyRazorPages.Tools;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 
 namespace EcoEnergyRazorPages.Data
 {
@@ -19,6 +22,12 @@ namespace EcoEnergyRazorPages.Data
                 .Build();
             string connectionString = config.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            ModelBuilderHelper.Seed(modelBuilder);
         }
     }
 }
