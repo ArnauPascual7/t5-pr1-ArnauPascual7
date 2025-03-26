@@ -1,0 +1,54 @@
+﻿@model EcoEnergyRazorPages.Model.DbEnergyIndicator
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+}
+
+<h1>Create</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CDEEBC_ProdNeta" class="control-label"></label>
+                <input asp-for="CDEEBC_ProdNeta" class="form-control" />
+                <span asp-validation-for="CDEEBC_ProdNeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCAC_GasolinaAuto" class="control-label"></label>
+                <input asp-for="CCAC_GasolinaAuto" class="form-control" />
+                <span asp-validation-for="CCAC_GasolinaAuto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CDEEBC_DemandaElectr" class="control-label"></label>
+                <input asp-for="CDEEBC_DemandaElectr" class="form-control" />
+                <span asp-validation-for="CDEEBC_DemandaElectr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CDEEBC_ProdDisp" class="control-label"></label>
+                <input asp-for="CDEEBC_ProdDisp" class="form-control" />
+                <span asp-validation-for="CDEEBC_ProdDisp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Tornar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

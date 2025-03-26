@@ -1,0 +1,67 @@
+﻿@model IEnumerable<EcoEnergyRazorPages.Model.DbEnergyIndicator>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+}
+
+<div class="text-center">
+    <h1 class="display-4">Indicadors Energètics</h1>
+</div>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear</a>
+    <form asp-action="Restore">
+        <input type="submit" value="Restaurar" class="btn btn-primary" />
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CDEEBC_ProdNeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCAC_GasolinaAuto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CDEEBC_DemandaElectr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CDEEBC_ProdDisp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CDEEBC_ProdNeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCAC_GasolinaAuto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CDEEBC_DemandaElectr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CDEEBC_ProdDisp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalls</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
