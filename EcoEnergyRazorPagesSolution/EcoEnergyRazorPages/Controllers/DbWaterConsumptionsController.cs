@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EcoEnergyRazorPages.Data;
 using EcoEnergyRazorPages.Model;
+using EcoEnergyRazorPages.Tools;
+using System.Diagnostics;
 
 namespace EcoEnergyRazorPages.Controllers
 {
@@ -163,6 +165,37 @@ namespace EcoEnergyRazorPages.Controllers
         private bool DbWaterConsumptionExists(int id)
         {
             return _context.WaterConsumptions.Any(e => e.Id == id);
+        }
+        [HttpPost]
+        [Route("")]
+        public IActionResult Restore()
+        {
+            const string csvFile = "consum_aigua_cat_per_comarques.csv";
+            const string csvPath = @"ModelData\" + csvFile;
+
+            Debug.WriteLine("?: Restore");
+
+            List<FileWaterConsumption> fileWaterCons = FilesHelper.ReadCsv<FileWaterConsumption>(csvPath);
+
+            foreach (DbWaterConsumption dbWaterCons in _context.WaterConsumptions)
+            {
+                _context.Remove(dbWaterCons);
+            }
+
+            foreach (FileWaterConsumption waterCons in fileWaterCons)
+            {
+                DbWaterConsumption dbWaterCons = new DbWaterConsumption()
+                {
+                    RegionCode = waterCons.RegionCode,
+                    RegionName = waterCons.RegionName,
+                    Year = waterCons.Year,
+                    HouseholdConsumptionPerCapita = waterCons.HouseholdConsumptionPerCapita
+                };
+                _context.Add(dbWaterCons);
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
