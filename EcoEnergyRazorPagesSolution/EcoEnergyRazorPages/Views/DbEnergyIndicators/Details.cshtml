@@ -1,0 +1,49 @@
+﻿@model EcoEnergyRazorPages.Model.DbEnergyIndicator
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+}
+
+<h1>Detalls</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CDEEBC_ProdNeta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CDEEBC_ProdNeta)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CCAC_GasolinaAuto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CCAC_GasolinaAuto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CDEEBC_DemandaElectr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CDEEBC_DemandaElectr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CDEEBC_ProdDisp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CDEEBC_ProdDisp)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id"class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-primary">Tornar</a>
+</div>

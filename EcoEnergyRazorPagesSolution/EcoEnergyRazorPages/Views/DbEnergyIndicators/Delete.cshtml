@@ -1,4 +1,4 @@
-﻿@model EcoEnergyRazorPages.Model.DbWaterConsumption
+﻿@model EcoEnergyRazorPages.Model.DbEnergyIndicator
 
 @{
     ViewData["Title"] = "Delete";
@@ -6,25 +6,13 @@
     @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 }
 
-<h1>Eliminar</h1>
+<h1>Delete</h1>
 
 <h3>Estas segur que vols eliminar això?</h3>
 <div>
-    <h4>Consum d'aigua</h4>
+    <h4>Indicador d'energia</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegionCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegionCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegionName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegionName)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Year)
         </dt>
@@ -32,10 +20,28 @@
             @Html.DisplayFor(model => model.Year)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HouseholdConsumptionPerCapita)
+            @Html.DisplayNameFor(model => model.CDEEBC_ProdNeta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HouseholdConsumptionPerCapita)
+            @Html.DisplayFor(model => model.CDEEBC_ProdNeta)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CCAC_GasolinaAuto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CCAC_GasolinaAuto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CDEEBC_DemandaElectr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CDEEBC_DemandaElectr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CDEEBC_ProdDisp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CDEEBC_ProdDisp)
         </dd>
     </dl>
     
