@@ -1,5 +1,67 @@
 # t5-pr1-ArnauPascual7
 
+# Esquema ORM
+
+
+
+# GitHub Project
+
+Projecte -> https://github.com/users/ArnauPascual7/projects/7
+
+Hi ha una branca nova per a cada configuració de cada apartat del projecte, al tenir una branca per a cada configuració puc centrar-me a configurar aquella part, i en acabar posar-me amb un altre branca per a configurar una altra cosa diferent.
+
+#### FileRevision
+
+Aquesta branca és per a la revisió de fitxers del projecte, al haver duplicat el projecte de la pràtica anterior aquest conté arxius que no s'ha utilitzat, aixií que s'han eliminat.
+
+#### Entities-Model
+
+Aquesta branca és per a la configuració de les Entitats o Models del projecte, com les seves propietats i la seva validació.
+
+#### EnergyIndicatorsController
+
+Aquesta branca és per a la configuració del Controlador de EnergyIndicators, a més de la condiguració de les seves vistes Index, Create, Delete, Details i Edit.
+
+#### DbContext
+
+Aquesta branca és per a la configuració del DbContext.
+
+#### WaterConsumptionController
+
+Aquesta branca al igual que la de EnergyIndicatorsController és per a la configuració del controlador de WaterConsumption i les seves vistes.
+
+#### SimulationsController
+
+Aqauesta branca és per al mateix que les altres dues de controladors, però per a Simulations.
+
+#### ProjectConfiguration
+
+Aquesta branca és per a la configuració general del projecte, com la configuració del [appsettings.json](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/appsettings.json), el [Program.cs](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Program.cs) o l'arxiu del [projecte](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/EcoEnergyRazorPages.csproj).
+
+#### CodeCleaning
+
+Aquesta branca és per a la neteja de codi, errors mínims o warnings sense solucionar o neteja de codi en general com moure strings o valors a constants o moure mètodes a a una HelperClass.
+
+# Solució del sistema
+
+La Solució conté el projecte principal de RazorPages. Dins d'aquest hi ha algunes noves carpetes que no venen amb el projecte de Razor Pages de forma predeterminada:
+
+[Controllers](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Controllers): Aquest directori conté els controladors de les pagines de Simulacions, Consums d'aigua i Indicadors d'energia.
+
+[Data](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Data): Aquest directori només conté el [DbContext](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Data/AppDbContext.cs) i la seva configuració, així com els mètodes OnConfiguring() i OnModelCreating().
+
+[Migrations](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Migrations): Aquest directori es generat automàticament al generar una migració a la base de dades, les migracions posteriors a la inicial també es generaran en aquest directori. També conté un snapshot del DbContext.
+
+[Model](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Model): Aquest directori conté les classes per a poder llegir els arxius i gestionar la base de dades.
+
+[ModelData](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/ModelData): Aquest directori conté els arxius CSV per a inicialitzar i restaurar la base de dades.
+
+[Pages](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Pages): Aquest directori ja be amb el projecte de forma predeterminada, però al utilitzar els controllers, es creen les pagies dins de [Views](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Views) en comptes de Pages,  així que en aquest projecte només s'ha utilitzat per al layout y el Index.
+
+[Tools](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Tools): Aquest directori conté dues helper classes amb funcionalitats per a ajudar en el maneig dels fitxers, llegir i escriure, i inicialitzar la base de dades.
+
+De forma predeterminada hi ha el directori [Pages](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Pages), aquest conté totes les pàgina de la web. També dins del direcotir [wwwroot](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/wwwroot) hi ha una carpeta [images](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/wwwroot/images) que conté les imatges utilitzades en la web.
+
 # Bibliografia
 
 > Michal Ciechan. (15/4/2010). Best method to store Enum in Database. StackOverflow. Recuperat el 23/3/2025 de https://stackoverflow.com/questions/2646498/best-method-to-store-enum-in-database.
