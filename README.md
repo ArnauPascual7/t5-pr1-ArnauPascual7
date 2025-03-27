@@ -20,10 +20,6 @@ A més dels arxius també s'han instal·lat múltiples paquests de NuGet:
 - Microsoft.Extensions.Configuration.FileExtensions
 - Microsoft.Extensions.Configuration.Json
 
-# Esquema ORM
-
-
-
 # GitHub Project
 
 Projecte -> https://github.com/users/ArnauPascual7/projects/7
@@ -62,7 +58,7 @@ Aquesta branca és per a la configuració general del projecte, com la configura
 
 Aquesta branca és per a la neteja de codi, errors mínims o warnings sense solucionar o neteja de codi en general com moure strings o valors a constants o moure mètodes a a una HelperClass.
 
-# Solució del sistema
+# Solució del sistema i Esquema ORM
 
 La Solució conté el projecte principal de RazorPages. Dins d'aquest hi ha algunes noves carpetes que no venen amb el projecte de Razor Pages de forma predeterminada:
 
