@@ -1,5 +1,25 @@
 # t5-pr1-ArnauPascual7
 
+# Canvis realitzats
+
+Hi ha molts canvis que s'han fet respecte l'original de la pràctica anterior, començant que la meitat de arxius s'han eliminat. Totes les pagies de taules i afegir registres han estat eliminades, ja que han sigut substituides per un Controller que genera les vistes. Els arxius CSV, XML i JSON, només queden els que contenen les dades orginals de Consums d'aigua i Indicadors d'energia, la resta d'arxius també han estat eliminats.
+
+En quant al Model, les entitats de WaterConsumption i EnergyIndicator s'han mantingut amb un canvi de nom, afegint File al nom del fitxer per a no confondre amb les Entitats noves per a la base de dades, en quan la Entitat de Simulacio ha estat eliminada, ha estat substituida per la Entitat DbSimulation per a utilitzar-la amb la base de dades. També s'ha eliminat l'herència de EnergySistem i la classe WaterCosnumptionComparer, ja que no són utilitzades en el nou programa.
+
+En el directori Tools també hi ha hagut canvis, la Helper Class per ajudar en les estadístiques de Consums d'agua ha estat eliminada, hi el seu lloc ara l'ocupa una nova Helper Class per a inicialitzar la base de dades amb les dades que contenen els fitxers.
+
+Hi ha arxius del Projecte que també s'han modificat, com l'arxiu [appsettings.json](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/appsettings.json) per a contenir l'string de connexió a la base de daes, el [Program.cs](EcoEnergyRazorPagesSolution/EcoEnergyRazorPages/Program.cs) per a fer que funcioni el controlador i les vistes, i l'arxiu del projecte per a fer que l'arxiu appsettings pugui ser visible des de la carpeta bin.
+
+També s'han creat múltiples fitxers i directoris nous, més avall en Solució del sistema s'explica.
+
+A més dels arxius també s'han instal·lat múltiples paquests de NuGet:
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Tools
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.Extensions.Configuration.FileExtensions
+- Microsoft.Extensions.Configuration.Json
+
 # Esquema ORM
 
 
